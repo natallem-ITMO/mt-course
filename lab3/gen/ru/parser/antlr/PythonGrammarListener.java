@@ -200,16 +200,6 @@ public interface PythonGrammarListener extends ParseTreeListener {
 	 */
 	void exitVariableExpression(PythonGrammarParser.VariableExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PythonGrammarParser#comparison}.
-	 * @param ctx the parse tree
-	 */
-	void enterComparison(PythonGrammarParser.ComparisonContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link PythonGrammarParser#comparison}.
-	 * @param ctx the parse tree
-	 */
-	void exitComparison(PythonGrammarParser.ComparisonContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code binaryCondition}
 	 * labeled alternative in {@link PythonGrammarParser#condition}.
 	 * @param ctx the parse tree

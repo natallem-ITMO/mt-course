@@ -232,18 +232,6 @@ public class PythonGrammarBaseListener implements PythonGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComparison(PythonGrammarParser.ComparisonContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitComparison(PythonGrammarParser.ComparisonContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterBinaryCondition(PythonGrammarParser.BinaryConditionContext ctx) { }
 	/**
 	 * {@inheritDoc}

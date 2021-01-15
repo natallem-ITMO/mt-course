@@ -6,13 +6,9 @@ grammar PythonGrammar;
 tokens { INDENT, DEDENT }
 
 @lexer::members {
-  // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
   private java.util.LinkedList<Token> tokens = new java.util.LinkedList<>();
-  // The stack that keeps track of the indentation level.
   private java.util.Stack<Integer> indents = new java.util.Stack<>();
-  // The amount of opened braces, brackets and parenthesis.
   private int opened = 0;
-  // The most recently produced token.
   private Token lastToken = null;
   @Override
   public void emit(Token t) {
@@ -22,32 +18,26 @@ tokens { INDENT, DEDENT }
 
   @Override
   public Token nextToken() {
-    // Check if the end-of-file is ahead and there are still some DEDENTS expected.
     if (_input.LA(1) == EOF && !this.indents.isEmpty()) {
-      // Remove any trailing EOF tokens from our buffer.
       for (int i = tokens.size() - 1; i >= 0; i--) {
         if (tokens.get(i).getType() == EOF) {
           tokens.remove(i);
         }
       }
 
-      // First emit an extra line break that serves as the end of the statement.
       this.emit(commonToken(PythonGrammarParser.NEWLINE, "\n"));
 
-      // Now emit as much DEDENT tokens as needed.
       while (!indents.isEmpty()) {
         this.emit(createDedent());
         indents.pop();
       }
 
-      // Put the EOF back on the token stream.
       this.emit(commonToken(PythonGrammarParser.EOF, "<EOF>"));
     }
 
     Token next = super.nextToken();
 
     if (next.getChannel() == Token.DEFAULT_CHANNEL) {
-      // Keep track of the last token on the default channel.
       this.lastToken = next;
     }
 
@@ -74,7 +64,6 @@ tokens { INDENT, DEDENT }
           count += 8 - (count % 8);
           break;
         default:
-          // A normal space char.
           count++;
       }
     }
@@ -87,17 +76,16 @@ tokens { INDENT, DEDENT }
   }
 }
 
-program : (NEWLINE | stmt)* EOF;
+program : (stmt | NEWLINE)* EOF;
 
 stmt : simple_stmt | compound_stmt;
 
 simple_stmt : (command | assignment | arithm_expr ) NEWLINE;
-compound_stmt : if_stmt | while_stmt | for_stmt ;
 
+compound_stmt : if_stmt | while_stmt | for_stmt ;
 if_stmt: 'if' condition ':' suite ('else' ':' suite)?;
 while_stmt: 'while' condition ':' suite ;
 for_stmt: 'for' ID 'in' 'range' LPAREN range_list RPAREN ':' suite;
-
 range_list
     : (NUMBER | ID)  #rangeOneNumber
     | (NUMBER | ID) ',' (NUMBER | ID) #rangeTwoNumbers ;
@@ -107,6 +95,7 @@ suite: simple_stmt | NEWLINE INDENT stmt+ DEDENT;
 command : print_command | read_command;
 print_command : 'print' LPAREN arithm_expr RPAREN ;
 read_command : name EQ 'int' LPAREN 'input' LPAREN RPAREN RPAREN ;
+
 assignment : name EQ arithm_expr ;
 
 arithm_expr
@@ -115,14 +104,12 @@ arithm_expr
     | arithm_expr (ADD | MUL | DIV | SUB) arithm_expr #binaryExpression
     | (LPAREN arithm_expr RPAREN) #inBracketExpression ;
 
-comparison : arithm_expr (DEQ | NEQ | GT | GTE | LTE | LT) arithm_expr;
-
 condition
     : TRUE #trueCondition
     | FALSE #falseCondition
     | NOT condition #notCondition
     | condition (AND | OR ) condition #binaryCondition
-    | comparison #comparisonCondition
+    | arithm_expr (DEQ | NEQ | GT | GTE | LTE | LT) arithm_expr #comparisonCondition
     | LPAREN condition RPAREN #inBracketCondition; // todo add more
 
 // operators

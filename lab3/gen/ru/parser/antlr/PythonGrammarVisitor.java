@@ -125,12 +125,6 @@ public interface PythonGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableExpression(PythonGrammarParser.VariableExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PythonGrammarParser#comparison}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitComparison(PythonGrammarParser.ComparisonContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code binaryCondition}
 	 * labeled alternative in {@link PythonGrammarParser#condition}.
 	 * @param ctx the parse tree

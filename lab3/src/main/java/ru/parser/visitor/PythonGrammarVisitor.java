@@ -164,21 +164,15 @@ public class PythonGrammarVisitor extends PythonGrammarBaseVisitor<StringBuilder
 
     @Override
     public StringBuilder visitComparisonCondition(PythonGrammarParser.ComparisonConditionContext ctx) {
-        return visit(ctx.children);
+        StringBuilder res = new StringBuilder();
+        visit(ctx.children.get(0), res, ctx.children.get(1).toString());
+        visit(ctx.children.get(2), res);
+        return res;
     }
 
     @Override
     public StringBuilder visitInBracketCondition(PythonGrammarParser.InBracketConditionContext ctx) {
         return visit(ctx.children).insert(0, "(").append(")");
-    }
-
-    @Override
-    public StringBuilder visitComparison(PythonGrammarParser.ComparisonContext ctx) {
-        StringBuilder res = new StringBuilder();
-        visit(ctx.children.get(0), res, ctx.children.get(1).toString());
-        visit(ctx.children.get(2), res);
-        return res;
-
     }
 
     @Override

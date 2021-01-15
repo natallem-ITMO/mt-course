@@ -25,13 +25,12 @@ public class PythonGrammarParser extends Parser {
 		RULE_program = 0, RULE_stmt = 1, RULE_simple_stmt = 2, RULE_compound_stmt = 3, 
 		RULE_if_stmt = 4, RULE_while_stmt = 5, RULE_for_stmt = 6, RULE_range_list = 7, 
 		RULE_suite = 8, RULE_command = 9, RULE_print_command = 10, RULE_read_command = 11, 
-		RULE_assignment = 12, RULE_arithm_expr = 13, RULE_comparison = 14, RULE_condition = 15, 
-		RULE_name = 16;
+		RULE_assignment = 12, RULE_arithm_expr = 13, RULE_condition = 14, RULE_name = 15;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"program", "stmt", "simple_stmt", "compound_stmt", "if_stmt", "while_stmt", 
 			"for_stmt", "range_list", "suite", "command", "print_command", "read_command", 
-			"assignment", "arithm_expr", "comparison", "condition", "name"
+			"assignment", "arithm_expr", "condition", "name"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -106,15 +105,15 @@ public class PythonGrammarParser extends Parser {
 
 	public static class ProgramContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(PythonGrammarParser.EOF, 0); }
-		public List<TerminalNode> NEWLINE() { return getTokens(PythonGrammarParser.NEWLINE); }
-		public TerminalNode NEWLINE(int i) {
-			return getToken(PythonGrammarParser.NEWLINE, i);
-		}
 		public List<StmtContext> stmt() {
 			return getRuleContexts(StmtContext.class);
 		}
 		public StmtContext stmt(int i) {
 			return getRuleContext(StmtContext.class,i);
+		}
+		public List<TerminalNode> NEWLINE() { return getTokens(PythonGrammarParser.NEWLINE); }
+		public TerminalNode NEWLINE(int i) {
+			return getToken(PythonGrammarParser.NEWLINE, i);
 		}
 		public ProgramContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -142,20 +141,14 @@ public class PythonGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(38);
+			setState(36);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ID) | (1L << NUMBER) | (1L << LPAREN) | (1L << NEWLINE))) != 0)) {
 				{
-				setState(36);
+				setState(34);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
-				case NEWLINE:
-					{
-					setState(34);
-					match(NEWLINE);
-					}
-					break;
 				case T__2:
 				case FOR:
 				case WHILE:
@@ -164,19 +157,25 @@ public class PythonGrammarParser extends Parser {
 				case NUMBER:
 				case LPAREN:
 					{
-					setState(35);
+					setState(32);
 					stmt();
+					}
+					break;
+				case NEWLINE:
+					{
+					setState(33);
+					match(NEWLINE);
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(40);
+				setState(38);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(41);
+			setState(39);
 			match(EOF);
 			}
 		}
@@ -221,7 +220,7 @@ public class PythonGrammarParser extends Parser {
 		StmtContext _localctx = new StmtContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_stmt);
 		try {
-			setState(45);
+			setState(43);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__2:
@@ -230,7 +229,7 @@ public class PythonGrammarParser extends Parser {
 			case LPAREN:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(43);
+				setState(41);
 				simple_stmt();
 				}
 				break;
@@ -239,7 +238,7 @@ public class PythonGrammarParser extends Parser {
 			case IF:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(44);
+				setState(42);
 				compound_stmt();
 				}
 				break;
@@ -294,29 +293,29 @@ public class PythonGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(50);
+			setState(48);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
 				{
-				setState(47);
+				setState(45);
 				command();
 				}
 				break;
 			case 2:
 				{
-				setState(48);
+				setState(46);
 				assignment();
 				}
 				break;
 			case 3:
 				{
-				setState(49);
+				setState(47);
 				arithm_expr(0);
 				}
 				break;
 			}
-			setState(52);
+			setState(50);
 			match(NEWLINE);
 			}
 		}
@@ -364,27 +363,27 @@ public class PythonGrammarParser extends Parser {
 		Compound_stmtContext _localctx = new Compound_stmtContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_compound_stmt);
 		try {
-			setState(57);
+			setState(55);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IF:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(54);
+				setState(52);
 				if_stmt();
 				}
 				break;
 			case WHILE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(55);
+				setState(53);
 				while_stmt();
 				}
 				break;
 			case FOR:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(56);
+				setState(54);
 				for_stmt();
 				}
 				break;
@@ -445,24 +444,24 @@ public class PythonGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(59);
+			setState(57);
 			match(IF);
-			setState(60);
+			setState(58);
 			condition(0);
-			setState(61);
+			setState(59);
 			match(COLON);
-			setState(62);
+			setState(60);
 			suite();
-			setState(66);
+			setState(64);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ELSE) {
 				{
-				setState(63);
+				setState(61);
 				match(ELSE);
-				setState(64);
+				setState(62);
 				match(COLON);
-				setState(65);
+				setState(63);
 				suite();
 				}
 			}
@@ -514,13 +513,13 @@ public class PythonGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(68);
+			setState(66);
 			match(WHILE);
-			setState(69);
+			setState(67);
 			condition(0);
-			setState(70);
+			setState(68);
 			match(COLON);
-			setState(71);
+			setState(69);
 			suite();
 			}
 		}
@@ -572,23 +571,23 @@ public class PythonGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(73);
+			setState(71);
 			match(FOR);
-			setState(74);
+			setState(72);
 			match(ID);
-			setState(75);
+			setState(73);
 			match(T__0);
-			setState(76);
+			setState(74);
 			match(T__1);
-			setState(77);
+			setState(75);
 			match(LPAREN);
-			setState(78);
+			setState(76);
 			range_list();
-			setState(79);
+			setState(77);
 			match(RPAREN);
-			setState(80);
+			setState(78);
 			match(COLON);
-			setState(81);
+			setState(79);
 			suite();
 			}
 		}
@@ -663,14 +662,14 @@ public class PythonGrammarParser extends Parser {
 		enterRule(_localctx, 14, RULE_range_list);
 		int _la;
 		try {
-			setState(87);
+			setState(85);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				_localctx = new RangeOneNumberContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(83);
+				setState(81);
 				_la = _input.LA(1);
 				if ( !(_la==ID || _la==NUMBER) ) {
 				_errHandler.recoverInline(this);
@@ -686,7 +685,7 @@ public class PythonGrammarParser extends Parser {
 				_localctx = new RangeTwoNumbersContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(84);
+				setState(82);
 				_la = _input.LA(1);
 				if ( !(_la==ID || _la==NUMBER) ) {
 				_errHandler.recoverInline(this);
@@ -696,9 +695,9 @@ public class PythonGrammarParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(85);
+				setState(83);
 				match(COMMA);
-				setState(86);
+				setState(84);
 				_la = _input.LA(1);
 				if ( !(_la==ID || _la==NUMBER) ) {
 				_errHandler.recoverInline(this);
@@ -760,7 +759,7 @@ public class PythonGrammarParser extends Parser {
 		enterRule(_localctx, 16, RULE_suite);
 		int _la;
 		try {
-			setState(99);
+			setState(97);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__2:
@@ -769,32 +768,32 @@ public class PythonGrammarParser extends Parser {
 			case LPAREN:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(89);
+				setState(87);
 				simple_stmt();
 				}
 				break;
 			case NEWLINE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(90);
+				setState(88);
 				match(NEWLINE);
-				setState(91);
+				setState(89);
 				match(INDENT);
-				setState(93); 
+				setState(91); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(92);
+					setState(90);
 					stmt();
 					}
 					}
-					setState(95); 
+					setState(93); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ID) | (1L << NUMBER) | (1L << LPAREN))) != 0) );
-				setState(97);
+				setState(95);
 				match(DEDENT);
 				}
 				break;
@@ -843,20 +842,20 @@ public class PythonGrammarParser extends Parser {
 		CommandContext _localctx = new CommandContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_command);
 		try {
-			setState(103);
+			setState(101);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__2:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(101);
+				setState(99);
 				print_command();
 				}
 				break;
 			case ID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(102);
+				setState(100);
 				read_command();
 				}
 				break;
@@ -906,13 +905,13 @@ public class PythonGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(105);
+			setState(103);
 			match(T__2);
-			setState(106);
+			setState(104);
 			match(LPAREN);
-			setState(107);
+			setState(105);
 			arithm_expr(0);
-			setState(108);
+			setState(106);
 			match(RPAREN);
 			}
 		}
@@ -965,21 +964,21 @@ public class PythonGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(110);
+			setState(108);
 			name();
-			setState(111);
+			setState(109);
 			match(EQ);
-			setState(112);
+			setState(110);
 			match(T__3);
+			setState(111);
+			match(LPAREN);
+			setState(112);
+			match(T__4);
 			setState(113);
 			match(LPAREN);
 			setState(114);
-			match(T__4);
-			setState(115);
-			match(LPAREN);
-			setState(116);
 			match(RPAREN);
-			setState(117);
+			setState(115);
 			match(RPAREN);
 			}
 		}
@@ -1027,11 +1026,11 @@ public class PythonGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(119);
+			setState(117);
 			name();
-			setState(120);
+			setState(118);
 			match(EQ);
-			setState(121);
+			setState(119);
 			arithm_expr(0);
 			}
 		}
@@ -1157,7 +1156,7 @@ public class PythonGrammarParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(130);
+			setState(128);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ID:
@@ -1166,7 +1165,7 @@ public class PythonGrammarParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(124);
+				setState(122);
 				name();
 				}
 				break;
@@ -1175,7 +1174,7 @@ public class PythonGrammarParser extends Parser {
 				_localctx = new NumberExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(125);
+				setState(123);
 				match(NUMBER);
 				}
 				break;
@@ -1185,11 +1184,11 @@ public class PythonGrammarParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				{
-				setState(126);
+				setState(124);
 				match(LPAREN);
-				setState(127);
+				setState(125);
 				arithm_expr(0);
-				setState(128);
+				setState(126);
 				match(RPAREN);
 				}
 				}
@@ -1198,7 +1197,7 @@ public class PythonGrammarParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(137);
+			setState(135);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1209,9 +1208,9 @@ public class PythonGrammarParser extends Parser {
 					{
 					_localctx = new BinaryExpressionContext(new Arithm_exprContext(_parentctx, _parentState));
 					pushNewRecursionContext(_localctx, _startState, RULE_arithm_expr);
-					setState(132);
+					setState(130);
 					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-					setState(133);
+					setState(131);
 					_la = _input.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << ADD) | (1L << SUB))) != 0)) ) {
 					_errHandler.recoverInline(this);
@@ -1221,12 +1220,12 @@ public class PythonGrammarParser extends Parser {
 						_errHandler.reportMatch(this);
 						consume();
 					}
-					setState(134);
+					setState(132);
 					arithm_expr(3);
 					}
 					} 
 				}
-				setState(139);
+				setState(137);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 			}
@@ -1239,72 +1238,6 @@ public class PythonGrammarParser extends Parser {
 		}
 		finally {
 			unrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public static class ComparisonContext extends ParserRuleContext {
-		public List<Arithm_exprContext> arithm_expr() {
-			return getRuleContexts(Arithm_exprContext.class);
-		}
-		public Arithm_exprContext arithm_expr(int i) {
-			return getRuleContext(Arithm_exprContext.class,i);
-		}
-		public TerminalNode DEQ() { return getToken(PythonGrammarParser.DEQ, 0); }
-		public TerminalNode NEQ() { return getToken(PythonGrammarParser.NEQ, 0); }
-		public TerminalNode GT() { return getToken(PythonGrammarParser.GT, 0); }
-		public TerminalNode GTE() { return getToken(PythonGrammarParser.GTE, 0); }
-		public TerminalNode LTE() { return getToken(PythonGrammarParser.LTE, 0); }
-		public TerminalNode LT() { return getToken(PythonGrammarParser.LT, 0); }
-		public ComparisonContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_comparison; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PythonGrammarListener ) ((PythonGrammarListener)listener).enterComparison(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PythonGrammarListener ) ((PythonGrammarListener)listener).exitComparison(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof PythonGrammarVisitor ) return ((PythonGrammarVisitor<? extends T>)visitor).visitComparison(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ComparisonContext comparison() throws RecognitionException {
-		ComparisonContext _localctx = new ComparisonContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_comparison);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(140);
-			arithm_expr(0);
-			setState(141);
-			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NEQ) | (1L << GTE) | (1L << LTE) | (1L << GT) | (1L << LT) | (1L << DEQ))) != 0)) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
-			setState(142);
-			arithm_expr(0);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
 		}
 		return _localctx;
 	}
@@ -1382,9 +1315,18 @@ public class PythonGrammarParser extends Parser {
 		}
 	}
 	public static class ComparisonConditionContext extends ConditionContext {
-		public ComparisonContext comparison() {
-			return getRuleContext(ComparisonContext.class,0);
+		public List<Arithm_exprContext> arithm_expr() {
+			return getRuleContexts(Arithm_exprContext.class);
 		}
+		public Arithm_exprContext arithm_expr(int i) {
+			return getRuleContext(Arithm_exprContext.class,i);
+		}
+		public TerminalNode DEQ() { return getToken(PythonGrammarParser.DEQ, 0); }
+		public TerminalNode NEQ() { return getToken(PythonGrammarParser.NEQ, 0); }
+		public TerminalNode GT() { return getToken(PythonGrammarParser.GT, 0); }
+		public TerminalNode GTE() { return getToken(PythonGrammarParser.GTE, 0); }
+		public TerminalNode LTE() { return getToken(PythonGrammarParser.LTE, 0); }
+		public TerminalNode LT() { return getToken(PythonGrammarParser.LT, 0); }
 		public ComparisonConditionContext(ConditionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -1448,14 +1390,14 @@ public class PythonGrammarParser extends Parser {
 		int _parentState = getState();
 		ConditionContext _localctx = new ConditionContext(_ctx, _parentState);
 		ConditionContext _prevctx = _localctx;
-		int _startState = 30;
-		enterRecursionRule(_localctx, 30, RULE_condition, _p);
+		int _startState = 28;
+		enterRecursionRule(_localctx, 28, RULE_condition, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(154);
+			setState(151);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
@@ -1464,7 +1406,7 @@ public class PythonGrammarParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(145);
+				setState(139);
 				match(TRUE);
 				}
 				break;
@@ -1473,7 +1415,7 @@ public class PythonGrammarParser extends Parser {
 				_localctx = new FalseConditionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(146);
+				setState(140);
 				match(FALSE);
 				}
 				break;
@@ -1482,9 +1424,9 @@ public class PythonGrammarParser extends Parser {
 				_localctx = new NotConditionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(147);
+				setState(141);
 				match(NOT);
-				setState(148);
+				setState(142);
 				condition(4);
 				}
 				break;
@@ -1493,8 +1435,20 @@ public class PythonGrammarParser extends Parser {
 				_localctx = new ComparisonConditionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(149);
-				comparison();
+				setState(143);
+				arithm_expr(0);
+				setState(144);
+				_la = _input.LA(1);
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NEQ) | (1L << GTE) | (1L << LTE) | (1L << GT) | (1L << LT) | (1L << DEQ))) != 0)) ) {
+				_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
+				setState(145);
+				arithm_expr(0);
 				}
 				break;
 			case 5:
@@ -1502,17 +1456,17 @@ public class PythonGrammarParser extends Parser {
 				_localctx = new InBracketConditionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(150);
+				setState(147);
 				match(LPAREN);
-				setState(151);
+				setState(148);
 				condition(0);
-				setState(152);
+				setState(149);
 				match(RPAREN);
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(161);
+			setState(158);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -1523,9 +1477,9 @@ public class PythonGrammarParser extends Parser {
 					{
 					_localctx = new BinaryConditionContext(new ConditionContext(_parentctx, _parentState));
 					pushNewRecursionContext(_localctx, _startState, RULE_condition);
-					setState(156);
+					setState(153);
 					if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-					setState(157);
+					setState(154);
 					_la = _input.LA(1);
 					if ( !(_la==AND || _la==OR) ) {
 					_errHandler.recoverInline(this);
@@ -1535,12 +1489,12 @@ public class PythonGrammarParser extends Parser {
 						_errHandler.reportMatch(this);
 						consume();
 					}
-					setState(158);
+					setState(155);
 					condition(4);
 					}
 					} 
 				}
-				setState(163);
+				setState(160);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,13,_ctx);
 			}
@@ -1580,11 +1534,11 @@ public class PythonGrammarParser extends Parser {
 
 	public final NameContext name() throws RecognitionException {
 		NameContext _localctx = new NameContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_name);
+		enterRule(_localctx, 30, RULE_name);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(164);
+			setState(161);
 			match(ID);
 			}
 		}
@@ -1603,7 +1557,7 @@ public class PythonGrammarParser extends Parser {
 		switch (ruleIndex) {
 		case 13:
 			return arithm_expr_sempred((Arithm_exprContext)_localctx, predIndex);
-		case 15:
+		case 14:
 			return condition_sempred((ConditionContext)_localctx, predIndex);
 		}
 		return true;
@@ -1624,54 +1578,53 @@ public class PythonGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3%\u00a9\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3%\u00a6\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\3\2\3\2\7\2\'\n\2\f\2\16\2*\13\2\3\2\3\2\3\3\3\3\5\3\60\n\3\3\4\3\4\3"+
-		"\4\5\4\65\n\4\3\4\3\4\3\5\3\5\3\5\5\5<\n\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6"+
-		"\5\6E\n\6\3\7\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b"+
-		"\3\t\3\t\3\t\3\t\5\tZ\n\t\3\n\3\n\3\n\3\n\6\n`\n\n\r\n\16\na\3\n\3\n\5"+
-		"\nf\n\n\3\13\3\13\5\13j\n\13\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3"+
-		"\r\3\r\3\r\3\r\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17"+
-		"\5\17\u0085\n\17\3\17\3\17\3\17\7\17\u008a\n\17\f\17\16\17\u008d\13\17"+
-		"\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21"+
-		"\5\21\u009d\n\21\3\21\3\21\3\21\7\21\u00a2\n\21\f\21\16\21\u00a5\13\21"+
-		"\3\22\3\22\3\22\2\4\34 \23\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"\2"+
-		"\6\3\2\34\35\3\2\b\13\3\2\f\21\3\2\23\24\2\u00ab\2(\3\2\2\2\4/\3\2\2\2"+
-		"\6\64\3\2\2\2\b;\3\2\2\2\n=\3\2\2\2\fF\3\2\2\2\16K\3\2\2\2\20Y\3\2\2\2"+
-		"\22e\3\2\2\2\24i\3\2\2\2\26k\3\2\2\2\30p\3\2\2\2\32y\3\2\2\2\34\u0084"+
-		"\3\2\2\2\36\u008e\3\2\2\2 \u009c\3\2\2\2\"\u00a6\3\2\2\2$\'\7\"\2\2%\'"+
-		"\5\4\3\2&$\3\2\2\2&%\3\2\2\2\'*\3\2\2\2(&\3\2\2\2()\3\2\2\2)+\3\2\2\2"+
-		"*(\3\2\2\2+,\7\2\2\3,\3\3\2\2\2-\60\5\6\4\2.\60\5\b\5\2/-\3\2\2\2/.\3"+
-		"\2\2\2\60\5\3\2\2\2\61\65\5\24\13\2\62\65\5\32\16\2\63\65\5\34\17\2\64"+
-		"\61\3\2\2\2\64\62\3\2\2\2\64\63\3\2\2\2\65\66\3\2\2\2\66\67\7\"\2\2\67"+
-		"\7\3\2\2\28<\5\n\6\29<\5\f\7\2:<\5\16\b\2;8\3\2\2\2;9\3\2\2\2;:\3\2\2"+
-		"\2<\t\3\2\2\2=>\7\30\2\2>?\5 \21\2?@\7!\2\2@D\5\22\n\2AB\7\31\2\2BC\7"+
-		"!\2\2CE\5\22\n\2DA\3\2\2\2DE\3\2\2\2E\13\3\2\2\2FG\7\27\2\2GH\5 \21\2"+
-		"HI\7!\2\2IJ\5\22\n\2J\r\3\2\2\2KL\7\26\2\2LM\7\34\2\2MN\7\3\2\2NO\7\4"+
-		"\2\2OP\7\37\2\2PQ\5\20\t\2QR\7 \2\2RS\7!\2\2ST\5\22\n\2T\17\3\2\2\2UZ"+
-		"\t\2\2\2VW\t\2\2\2WX\7\36\2\2XZ\t\2\2\2YU\3\2\2\2YV\3\2\2\2Z\21\3\2\2"+
-		"\2[f\5\6\4\2\\]\7\"\2\2]_\7$\2\2^`\5\4\3\2_^\3\2\2\2`a\3\2\2\2a_\3\2\2"+
-		"\2ab\3\2\2\2bc\3\2\2\2cd\7%\2\2df\3\2\2\2e[\3\2\2\2e\\\3\2\2\2f\23\3\2"+
-		"\2\2gj\5\26\f\2hj\5\30\r\2ig\3\2\2\2ih\3\2\2\2j\25\3\2\2\2kl\7\5\2\2l"+
-		"m\7\37\2\2mn\5\34\17\2no\7 \2\2o\27\3\2\2\2pq\5\"\22\2qr\7\22\2\2rs\7"+
-		"\6\2\2st\7\37\2\2tu\7\7\2\2uv\7\37\2\2vw\7 \2\2wx\7 \2\2x\31\3\2\2\2y"+
-		"z\5\"\22\2z{\7\22\2\2{|\5\34\17\2|\33\3\2\2\2}~\b\17\1\2~\u0085\5\"\22"+
-		"\2\177\u0085\7\35\2\2\u0080\u0081\7\37\2\2\u0081\u0082\5\34\17\2\u0082"+
-		"\u0083\7 \2\2\u0083\u0085\3\2\2\2\u0084}\3\2\2\2\u0084\177\3\2\2\2\u0084"+
-		"\u0080\3\2\2\2\u0085\u008b\3\2\2\2\u0086\u0087\f\4\2\2\u0087\u0088\t\3"+
-		"\2\2\u0088\u008a\5\34\17\5\u0089\u0086\3\2\2\2\u008a\u008d\3\2\2\2\u008b"+
-		"\u0089\3\2\2\2\u008b\u008c\3\2\2\2\u008c\35\3\2\2\2\u008d\u008b\3\2\2"+
-		"\2\u008e\u008f\5\34\17\2\u008f\u0090\t\4\2\2\u0090\u0091\5\34\17\2\u0091"+
-		"\37\3\2\2\2\u0092\u0093\b\21\1\2\u0093\u009d\7\32\2\2\u0094\u009d\7\33"+
-		"\2\2\u0095\u0096\7\25\2\2\u0096\u009d\5 \21\6\u0097\u009d\5\36\20\2\u0098"+
-		"\u0099\7\37\2\2\u0099\u009a\5 \21\2\u009a\u009b\7 \2\2\u009b\u009d\3\2"+
-		"\2\2\u009c\u0092\3\2\2\2\u009c\u0094\3\2\2\2\u009c\u0095\3\2\2\2\u009c"+
-		"\u0097\3\2\2\2\u009c\u0098\3\2\2\2\u009d\u00a3\3\2\2\2\u009e\u009f\f\5"+
-		"\2\2\u009f\u00a0\t\5\2\2\u00a0\u00a2\5 \21\6\u00a1\u009e\3\2\2\2\u00a2"+
-		"\u00a5\3\2\2\2\u00a3\u00a1\3\2\2\2\u00a3\u00a4\3\2\2\2\u00a4!\3\2\2\2"+
-		"\u00a5\u00a3\3\2\2\2\u00a6\u00a7\7\34\2\2\u00a7#\3\2\2\2\20&(/\64;DYa"+
-		"ei\u0084\u008b\u009c\u00a3";
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3\2\7"+
+		"\2%\n\2\f\2\16\2(\13\2\3\2\3\2\3\3\3\3\5\3.\n\3\3\4\3\4\3\4\5\4\63\n\4"+
+		"\3\4\3\4\3\5\3\5\3\5\5\5:\n\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6C\n\6\3\7"+
+		"\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\t\3\t\3\t\3"+
+		"\t\5\tX\n\t\3\n\3\n\3\n\3\n\6\n^\n\n\r\n\16\n_\3\n\3\n\5\nd\n\n\3\13\3"+
+		"\13\5\13h\n\13\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
+		"\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u0083\n\17"+
+		"\3\17\3\17\3\17\7\17\u0088\n\17\f\17\16\17\u008b\13\17\3\20\3\20\3\20"+
+		"\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\5\20\u009a\n\20\3\20"+
+		"\3\20\3\20\7\20\u009f\n\20\f\20\16\20\u00a2\13\20\3\21\3\21\3\21\2\4\34"+
+		"\36\22\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \2\6\3\2\34\35\3\2\b\13"+
+		"\3\2\f\21\3\2\23\24\2\u00a9\2&\3\2\2\2\4-\3\2\2\2\6\62\3\2\2\2\b9\3\2"+
+		"\2\2\n;\3\2\2\2\fD\3\2\2\2\16I\3\2\2\2\20W\3\2\2\2\22c\3\2\2\2\24g\3\2"+
+		"\2\2\26i\3\2\2\2\30n\3\2\2\2\32w\3\2\2\2\34\u0082\3\2\2\2\36\u0099\3\2"+
+		"\2\2 \u00a3\3\2\2\2\"%\5\4\3\2#%\7\"\2\2$\"\3\2\2\2$#\3\2\2\2%(\3\2\2"+
+		"\2&$\3\2\2\2&\'\3\2\2\2\')\3\2\2\2(&\3\2\2\2)*\7\2\2\3*\3\3\2\2\2+.\5"+
+		"\6\4\2,.\5\b\5\2-+\3\2\2\2-,\3\2\2\2.\5\3\2\2\2/\63\5\24\13\2\60\63\5"+
+		"\32\16\2\61\63\5\34\17\2\62/\3\2\2\2\62\60\3\2\2\2\62\61\3\2\2\2\63\64"+
+		"\3\2\2\2\64\65\7\"\2\2\65\7\3\2\2\2\66:\5\n\6\2\67:\5\f\7\28:\5\16\b\2"+
+		"9\66\3\2\2\29\67\3\2\2\298\3\2\2\2:\t\3\2\2\2;<\7\30\2\2<=\5\36\20\2="+
+		">\7!\2\2>B\5\22\n\2?@\7\31\2\2@A\7!\2\2AC\5\22\n\2B?\3\2\2\2BC\3\2\2\2"+
+		"C\13\3\2\2\2DE\7\27\2\2EF\5\36\20\2FG\7!\2\2GH\5\22\n\2H\r\3\2\2\2IJ\7"+
+		"\26\2\2JK\7\34\2\2KL\7\3\2\2LM\7\4\2\2MN\7\37\2\2NO\5\20\t\2OP\7 \2\2"+
+		"PQ\7!\2\2QR\5\22\n\2R\17\3\2\2\2SX\t\2\2\2TU\t\2\2\2UV\7\36\2\2VX\t\2"+
+		"\2\2WS\3\2\2\2WT\3\2\2\2X\21\3\2\2\2Yd\5\6\4\2Z[\7\"\2\2[]\7$\2\2\\^\5"+
+		"\4\3\2]\\\3\2\2\2^_\3\2\2\2_]\3\2\2\2_`\3\2\2\2`a\3\2\2\2ab\7%\2\2bd\3"+
+		"\2\2\2cY\3\2\2\2cZ\3\2\2\2d\23\3\2\2\2eh\5\26\f\2fh\5\30\r\2ge\3\2\2\2"+
+		"gf\3\2\2\2h\25\3\2\2\2ij\7\5\2\2jk\7\37\2\2kl\5\34\17\2lm\7 \2\2m\27\3"+
+		"\2\2\2no\5 \21\2op\7\22\2\2pq\7\6\2\2qr\7\37\2\2rs\7\7\2\2st\7\37\2\2"+
+		"tu\7 \2\2uv\7 \2\2v\31\3\2\2\2wx\5 \21\2xy\7\22\2\2yz\5\34\17\2z\33\3"+
+		"\2\2\2{|\b\17\1\2|\u0083\5 \21\2}\u0083\7\35\2\2~\177\7\37\2\2\177\u0080"+
+		"\5\34\17\2\u0080\u0081\7 \2\2\u0081\u0083\3\2\2\2\u0082{\3\2\2\2\u0082"+
+		"}\3\2\2\2\u0082~\3\2\2\2\u0083\u0089\3\2\2\2\u0084\u0085\f\4\2\2\u0085"+
+		"\u0086\t\3\2\2\u0086\u0088\5\34\17\5\u0087\u0084\3\2\2\2\u0088\u008b\3"+
+		"\2\2\2\u0089\u0087\3\2\2\2\u0089\u008a\3\2\2\2\u008a\35\3\2\2\2\u008b"+
+		"\u0089\3\2\2\2\u008c\u008d\b\20\1\2\u008d\u009a\7\32\2\2\u008e\u009a\7"+
+		"\33\2\2\u008f\u0090\7\25\2\2\u0090\u009a\5\36\20\6\u0091\u0092\5\34\17"+
+		"\2\u0092\u0093\t\4\2\2\u0093\u0094\5\34\17\2\u0094\u009a\3\2\2\2\u0095"+
+		"\u0096\7\37\2\2\u0096\u0097\5\36\20\2\u0097\u0098\7 \2\2\u0098\u009a\3"+
+		"\2\2\2\u0099\u008c\3\2\2\2\u0099\u008e\3\2\2\2\u0099\u008f\3\2\2\2\u0099"+
+		"\u0091\3\2\2\2\u0099\u0095\3\2\2\2\u009a\u00a0\3\2\2\2\u009b\u009c\f\5"+
+		"\2\2\u009c\u009d\t\5\2\2\u009d\u009f\5\36\20\6\u009e\u009b\3\2\2\2\u009f"+
+		"\u00a2\3\2\2\2\u00a0\u009e\3\2\2\2\u00a0\u00a1\3\2\2\2\u00a1\37\3\2\2"+
+		"\2\u00a2\u00a0\3\2\2\2\u00a3\u00a4\7\34\2\2\u00a4!\3\2\2\2\20$&-\629B"+
+		"W_cg\u0082\u0089\u0099\u00a0";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

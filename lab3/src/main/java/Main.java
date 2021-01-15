@@ -11,8 +11,8 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class Main {
-    private final static List<String> file_names = List.of("greatest_common_divisor", "fibonacci");
-    private final static int choice = 1;
+    private final static List<String> file_names = List.of("greatest_common_divisor", "fibonacci", "test");
+    private final static int choice = 2;
 
     public static void main(String[] args) throws Exception {
 

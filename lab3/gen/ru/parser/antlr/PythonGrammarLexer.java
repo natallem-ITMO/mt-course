@@ -91,13 +91,9 @@ public class PythonGrammarLexer extends Lexer {
 	}
 
 
-	  // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
 	  private java.util.LinkedList<Token> tokens = new java.util.LinkedList<>();
-	  // The stack that keeps track of the indentation level.
 	  private java.util.Stack<Integer> indents = new java.util.Stack<>();
-	  // The amount of opened braces, brackets and parenthesis.
 	  private int opened = 0;
-	  // The most recently produced token.
 	  private Token lastToken = null;
 	  @Override
 	  public void emit(Token t) {
@@ -107,32 +103,26 @@ public class PythonGrammarLexer extends Lexer {
 
 	  @Override
 	  public Token nextToken() {
-	    // Check if the end-of-file is ahead and there are still some DEDENTS expected.
 	    if (_input.LA(1) == EOF && !this.indents.isEmpty()) {
-	      // Remove any trailing EOF tokens from our buffer.
 	      for (int i = tokens.size() - 1; i >= 0; i--) {
 	        if (tokens.get(i).getType() == EOF) {
 	          tokens.remove(i);
 	        }
 	      }
 
-	      // First emit an extra line break that serves as the end of the statement.
 	      this.emit(commonToken(PythonGrammarParser.NEWLINE, "\n"));
 
-	      // Now emit as much DEDENT tokens as needed.
 	      while (!indents.isEmpty()) {
 	        this.emit(createDedent());
 	        indents.pop();
 	      }
 
-	      // Put the EOF back on the token stream.
 	      this.emit(commonToken(PythonGrammarParser.EOF, "<EOF>"));
 	    }
 
 	    Token next = super.nextToken();
 
 	    if (next.getChannel() == Token.DEFAULT_CHANNEL) {
-	      // Keep track of the last token on the default channel.
 	      this.lastToken = next;
 	    }
 
@@ -159,7 +149,6 @@ public class PythonGrammarLexer extends Lexer {
 	          count += 8 - (count % 8);
 	          break;
 	        default:
-	          // A normal space char.
 	          count++;
 	      }
 	    }
