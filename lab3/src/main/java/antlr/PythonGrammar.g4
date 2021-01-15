@@ -1,8 +1,5 @@
 grammar PythonGrammar;
 
-// All comments that start with "///" are copy-pasted from
-// The Python Language Reference
-
 tokens { INDENT, DEDENT }
 
 @lexer::members {
