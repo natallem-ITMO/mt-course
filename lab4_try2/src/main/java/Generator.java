@@ -35,7 +35,6 @@ public class Generator {
         String directory_to_write = System.getProperty("user.dir") + "/src/results/" + result_dirs.get(choice);
         generate_lexer(directory_to_write, visitor);
         generate_parser(directory_to_write, visitor);
-        int x = 10;
     }
 
     private static void generate_parser(String directory_to_write, GrammarVisitor visitor) throws IOException {
@@ -112,7 +111,7 @@ public class Generator {
                 "        lex_analyzer = new lexical_analyzer(source);\n" +
                 "        lex_analyzer->nextToken();\n" +
                 "        unique_ptr<"+visitor.begin_non_term+"_node> ptr = make_unique<"+visitor.begin_non_term+"_node>();\n" +
-                "        input(ptr.get());\n" +
+                "        "+visitor.begin_non_term+"(ptr.get());\n" +
                 "        delete lex_analyzer;\n"  +
                 "        lex_analyzer = nullptr;\n"+
                 "        "+visitor.begin_non_term+"_node * result = ptr.release();\n" +

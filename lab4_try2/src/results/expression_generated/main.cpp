@@ -1,9 +1,6 @@
 #include "lexical_analyzer.h"
 #include "parser.h"
 #include <gtest/gtest.h>
-#include <iostream>
-#include <map>
-#include <random>
 #include <tuple>
 #include <vector>
 

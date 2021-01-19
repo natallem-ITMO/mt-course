@@ -1,4 +1,4 @@
-s -> DEF WS NAME L_PARENT p R_PARENT EQ EOF
+s -> DEF WS NAME L_PAREN p R_PAREN EQ EOF
 p -> ^
 p -> POINTS
 p -> NAME t

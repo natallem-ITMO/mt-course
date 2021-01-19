@@ -21,12 +21,6 @@ parser.h
 /data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/parser.h
 gtest/gtest.h
 -
-iostream
--
-map
--
-random
--
 tuple
 -
 vector
