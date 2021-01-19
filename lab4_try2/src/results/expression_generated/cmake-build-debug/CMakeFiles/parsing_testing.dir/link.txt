@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++2a -g -fsanitize=address,undefined -D_GLIBCXX_DEBUG   CMakeFiles/parsing_testing.dir/main.cpp.o  -o parsing_testing  lib/libgtestd.a -lpthread 

@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/CMakeFiles/googletest"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/CMakeFiles/googletest.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/CMakeFiles/googletest-complete.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-install.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-mkdir.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-download.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-update.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-patch.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-configure.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-build.rule"
+		},
+		{
+			"file" : "/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest"
+		],
+		"name" : "googletest"
+	}
+}
