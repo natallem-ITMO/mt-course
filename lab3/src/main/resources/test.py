@@ -9,4 +9,5 @@ if (not x > 10.324) :
         if (not y != t and y==t):
             for dddd in range (10,x):
                 print(t)
+        er = 23
 

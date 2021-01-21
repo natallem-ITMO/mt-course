@@ -5,6 +5,7 @@ int t;
 int tttt;
 int x;
 int y;
+int er;
 
 int main()
 {
@@ -20,6 +21,7 @@ int main()
 					printf("%d\n",t);
 				}
 			}
+			er = 23;
 		}
 	}
 	return 0;
