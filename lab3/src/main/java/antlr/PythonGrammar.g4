@@ -190,7 +190,6 @@ NEWLINE
    }
  ;
 
-//NEWLINE : [ \t]+ -> skip;
 fragment SPACES
  : [ \t]+
  ;

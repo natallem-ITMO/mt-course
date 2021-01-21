@@ -2,6 +2,7 @@
 #include <stdbool.h>
 
 int t;
+int tttt;
 int x;
 int y;
 
@@ -12,6 +13,8 @@ int main()
 	t = 10;
 	if ((!(x>10.324))) {
 		while ((y==x)) {
+			x+10;
+			tttt = 234+324+34;
 			if ((!(y!=t)&&y==t)) {
 				for (int dddd=10; dddd<x; dddd++) {
 					printf("%d\n",t);
