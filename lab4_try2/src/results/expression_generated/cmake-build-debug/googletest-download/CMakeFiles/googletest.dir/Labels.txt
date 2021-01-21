@@ -1,0 +1,14 @@
+# Target labels
+ googletest
+# Source files and their labels
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/CMakeFiles/googletest
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/CMakeFiles/googletest.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/CMakeFiles/googletest-complete.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-install.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-mkdir.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-download.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-update.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-patch.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-configure.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-build.rule
+/data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download/googletest-prefix/src/googletest-stamp/googletest-test.rule

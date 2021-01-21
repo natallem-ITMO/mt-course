@@ -1,0 +1,32 @@
+/snap/clion/138/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug/googletest-download
+Scanning dependencies of target googletest
+[ 11%] Creating directories for 'googletest'
+[ 22%] Performing download step (git clone) for 'googletest'
+Клонирование в «googletest-src»…
+Уже на «master»
+Ваша ветка обновлена в соответствии с «origin/master».
+[ 33%] No patch step for 'googletest'
+[ 44%] Performing update step for 'googletest'
+Current branch master is up to date.
+[ 55%] No configure step for 'googletest'
+[ 66%] No build step for 'googletest'
+[ 77%] No install step for 'googletest'
+[ 88%] No test step for 'googletest'
+[100%] Completed 'googletest'
+[100%] Built target googletest
+-- Found Python: /usr/bin/python3.7 (found version "3.7.5") found components: Interpreter 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /data/Projects/GitProjects/mt-course/lab4_try2/src/results/expression_generated/cmake-build-debug
