@@ -9,6 +9,7 @@ public class PythonGrammarVisitor extends PythonGrammarBaseVisitor<StringBuilder
     private static final HashSet<String> variables = new HashSet<>();
     private static int depth = 1;
     private static String beginRange = "0";
+    private static String stepRange = "1";
     private static String endRange = "0";
     public static Map<String, String> logicOperations;
 
@@ -198,6 +199,7 @@ public class PythonGrammarVisitor extends PythonGrammarBaseVisitor<StringBuilder
         return builder;
     }
 
+
     @Override
     public StringBuilder visitIf_stmt(PythonGrammarParser.If_stmtContext ctx) {
         StringBuilder builder = new StringBuilder("if (");
@@ -229,7 +231,7 @@ public class PythonGrammarVisitor extends PythonGrammarBaseVisitor<StringBuilder
         StringBuilder builder = new StringBuilder("for (int ");
         builder.append(name).append("=").append(beginRange).append("; ")
                 .append(name).append("<").append(endRange).append("; ")
-                .append(name).append("++) {")
+                .append(name).append("+=").append(stepRange).append(") {")
                 .append(System.lineSeparator()).append("\t".repeat(depth));
         visit(ctx.children.get(8), builder);
         --depth;
@@ -244,6 +246,7 @@ public class PythonGrammarVisitor extends PythonGrammarBaseVisitor<StringBuilder
     @Override
     public StringBuilder visitRangeOneNumber(PythonGrammarParser.RangeOneNumberContext ctx) {
         beginRange = "0";
+        stepRange = "1";
         endRange = ctx.children.get(0).toString();
         return new StringBuilder();
     }
@@ -251,6 +254,15 @@ public class PythonGrammarVisitor extends PythonGrammarBaseVisitor<StringBuilder
     @Override
     public StringBuilder visitRangeTwoNumbers(PythonGrammarParser.RangeTwoNumbersContext ctx) {
         beginRange = ctx.children.get(0).toString();
+        stepRange = "1";
+        endRange = ctx.children.get(2).toString();
+        return new StringBuilder();
+    }
+
+    @Override
+    public StringBuilder visitRangeThreeNumbers(PythonGrammarParser.RangeThreeNumbersContext ctx) {
+        beginRange = ctx.children.get(0).toString();
+        stepRange =  ctx.children.get(4).toString();
         endRange = ctx.children.get(2).toString();
         return new StringBuilder();
     }

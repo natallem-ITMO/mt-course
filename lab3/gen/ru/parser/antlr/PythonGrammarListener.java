@@ -102,6 +102,18 @@ public interface PythonGrammarListener extends ParseTreeListener {
 	 */
 	void exitRangeTwoNumbers(PythonGrammarParser.RangeTwoNumbersContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code rangeThreeNumbers}
+	 * labeled alternative in {@link PythonGrammarParser#range_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterRangeThreeNumbers(PythonGrammarParser.RangeThreeNumbersContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code rangeThreeNumbers}
+	 * labeled alternative in {@link PythonGrammarParser#range_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitRangeThreeNumbers(PythonGrammarParser.RangeThreeNumbersContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PythonGrammarParser#suite}.
 	 * @param ctx the parse tree
 	 */

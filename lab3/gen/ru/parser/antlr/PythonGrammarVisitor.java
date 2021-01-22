@@ -67,6 +67,13 @@ public interface PythonGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRangeTwoNumbers(PythonGrammarParser.RangeTwoNumbersContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code rangeThreeNumbers}
+	 * labeled alternative in {@link PythonGrammarParser#range_list}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRangeThreeNumbers(PythonGrammarParser.RangeThreeNumbersContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PythonGrammarParser#suite}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

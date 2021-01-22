@@ -124,6 +124,18 @@ public class PythonGrammarBaseListener implements PythonGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRangeThreeNumbers(PythonGrammarParser.RangeThreeNumbersContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRangeThreeNumbers(PythonGrammarParser.RangeThreeNumbersContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterSuite(PythonGrammarParser.SuiteContext ctx) { }
 	/**
 	 * {@inheritDoc}

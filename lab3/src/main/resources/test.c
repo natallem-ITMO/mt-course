@@ -1,29 +1,19 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int df;
+int dd;
 int t;
-int tttt;
 int x;
 int y;
-int er;
 
 int main()
 {
 	x = 10;
 	y = 30;
 	t = 10;
-	if ((!(x>10.324))) {
-		while ((y==x)) {
-			x+10;
-			tttt = 234+324+34;
-			if ((!(y!=t)&&y==t)) {
-				for (int dddd=10; dddd<x; dddd++) {
-					df = 23;
-				}
-			}
-			er = 23;
-		}
+	dd = 2;
+	for (int i=1; i<10; i+=dd) {
+		printf("%d\n",i);
 	}
 	return 0;
 }

@@ -85,7 +85,9 @@ while_stmt: 'while' condition ':' suite ;
 for_stmt: 'for' ID 'in' 'range' LPAREN range_list RPAREN ':' suite;
 range_list
     : (NUMBER | ID)  #rangeOneNumber
-    | (NUMBER | ID) ',' (NUMBER | ID) #rangeTwoNumbers ;
+    | (NUMBER | ID) ',' (NUMBER | ID) #rangeTwoNumbers
+    | (NUMBER | ID) ',' (NUMBER | ID) ',' (NUMBER | ID) #rangeThreeNumbers
+    ;
 
 suite: simple_stmt | NEWLINE INDENT stmt+ DEDENT;
 
@@ -107,7 +109,7 @@ condition
     | NOT condition #notCondition
     | condition (AND | OR ) condition #binaryCondition
     | arithm_expr (DEQ | NEQ | GT | GTE | LTE | LT) arithm_expr #comparisonCondition
-    | LPAREN condition RPAREN #inBracketCondition; // todo add more
+    | LPAREN condition RPAREN #inBracketCondition;
 
 // operators
 MUL : '*' ;
