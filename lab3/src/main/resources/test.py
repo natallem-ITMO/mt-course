@@ -8,6 +8,6 @@ if (not x > 10.324) :
         tttt = 234 + 324 + 34
         if (not y != t and y==t):
             for dddd in range (10,x):
-                print(t)
+                df =23
         er = 23
 
