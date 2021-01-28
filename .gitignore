@@ -1,4 +1,11 @@
-/lab3/.idea/
-/lab4/src/results/lab2_generated/.idea/
-/lab4/src/results/expression_generated/.idea/
 /.idea/
+
+/lab2/cmake-build-debug/
+/lab2/.idea/
+
+/lab3/.idea/
+
+/lab4/src/results/lab2_generated/.idea/
+/lab4/src/results/lab2_generated/cmake-build-debug/
+/lab4/src/results/expression_generated/.idea/
+/lab4/src/results/expression_generated/cmake-build-debug/
